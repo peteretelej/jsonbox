@@ -1,15 +1,15 @@
 # jsonbox Go SDK
 Go wrapper for [jsonbox](https://github.com/vasanthv/jsonbox)
 
-See [examples](./examples)
+- See [examples](./examples) for sample usage
 
 
-Importing the package
+## Usage
+
+Import the package
 ```
 import "github.com/peteretelej/jsonbox"
 ```
-
-## Usage
 
 Use `NewClient` to get a new jsonbox Client to use
 ```
@@ -45,17 +45,17 @@ out, err := cl.Update("demobox_6d9e326c183fde7b","5d776b75fd6d3d6cb1d45c53",val)
 fmt.Printf("%s",out)
 ```
 
-**Delete** record from BOXID
+**Delete** record from _BOXID_
 ```
 err := cl.Delete("demobox_6d9e326c183fde7b","5d776b75fd6d3d6cb1d45c53")
 ```
 
-**DeleteAll** records for a BOX_ID
+**DeleteAll** records for a _BOX_ID_
 ```
 err := cl.Delete(BOXID)
 ```
 
-**List IDs** for all records for a BOX_ID
+**List IDs** for all records for a _BOX_ID_
 ```
 ids,err := cl.IDs("demobox_6d9e326c183fde7b")
 fmt.Printf("%s",ids)
