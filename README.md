@@ -1,4 +1,6 @@
 # jsonbox Go Client SDK
+[![GoDoc](https://godoc.org/github.com/peteretelej/jsonbox?status.svg)](https://godoc.org/github.com/peteretelej/jsonbox)
+
 Go wrapper / Client SDK for [jsonbox](https://github.com/vasanthv/jsonbox)
 
 - See [examples](./examples) for sample usage
