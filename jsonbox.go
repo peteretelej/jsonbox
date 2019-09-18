@@ -19,7 +19,7 @@ var (
 	ErrName = errors.New("invalid name for either BOX_ID or COLLECTION")
 )
 
-// New returns a new jsonbox client
+// NewClient returns a new jsonbox client
 func NewClient(baseURL string) (*Client, error) {
 	url, err := url.Parse(baseURL)
 	if err != nil {
@@ -93,6 +93,9 @@ func (c Client) DeleteAll(boxID string) error {
 		return fmt.Errorf("failed to READ record(s) from boxID %s: %v", boxID, err)
 	}
 	metas, err := GetRecordMetas(out)
+	if err != nil {
+		return fmt.Errorf("failed to READ record IDs from response %s: %v", boxID, err)
+	}
 	for _, m := range metas {
 		err := c.Delete(boxID, m.ID)
 		if err != nil {

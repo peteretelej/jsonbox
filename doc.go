@@ -1,5 +1,6 @@
 /*
-Package jsondoc wraps jsonbox API calls.
+
+Package jsonbox wraps jsonbox API calls.
 
 Create a new Client for use
 
