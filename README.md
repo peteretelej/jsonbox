@@ -16,7 +16,7 @@ Use `NewClient` to get a new jsonbox Client to use
 cl,err := jsonbox.NewClient("https://jsonbox.io/")
 ```
 
-Create
+**Create**
 ```
 //  Create a record
 val := []byte(`{"name": "Jon Snow", "age": 25}`)
@@ -27,7 +27,7 @@ val := []byte(`[{"name": "Daenerys Targaryen", "age": 25}, {"name": "Arya Stark"
 out, err := cl.Create("demobox_6d9e326c183fde7b",val)
 ```
 
-Read
+**Read**
 ```
 out, err := cl.Read("demobox_6d9e326c183fde7b")
 fmt.Printf("%s",out)
@@ -38,17 +38,27 @@ fmt.Printf("%s",out)
 
 ```
 
-Update
+**Update**
 ```
 val := []byte(`{"name": "Arya Stark", "age": 18}`)
 out, err := cl.Update("demobox_6d9e326c183fde7b","5d776b75fd6d3d6cb1d45c53",val)
 fmt.Printf("%s",out)
 ```
 
-Delete
+**Delete** record from BOXID
 ```
-out, err := cl.Delete("demobox_6d9e326c183fde7b","5d776b75fd6d3d6cb1d45c53")
-fmt.Printf("%s",out)
+err := cl.Delete("demobox_6d9e326c183fde7b","5d776b75fd6d3d6cb1d45c53")
+```
+
+**DeleteAll** records for a BOX_ID
+```
+err := cl.Delete(BOXID)
+```
+
+**List IDs** for all records for a BOX_ID
+```
+ids,err := cl.IDs("demobox_6d9e326c183fde7b")
+fmt.Printf("%s",ids)
 ```
 
 See full example usage at [examples/full](./examples/full/main.go)
