@@ -16,11 +16,11 @@ func main() {
 		log.Fatalf("failed to create jsonbox client: %v", err)
 	}
 
-	out, err := cl.Read("demobox_6d9e326c183fde7b?limit=1")
+	out, err := cl.Read("demobox_6d9e326c183fde7b")
 	if err != nil {
 		log.Fatalf("failed to READ first record from %s: %v", demoBox, err)
 	}
 
-	fmt.Printf("READ demobox first record: %s\n", out)
+	fmt.Printf("READ demobox records: %s\n", out)
 
 }

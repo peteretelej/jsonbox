@@ -55,12 +55,17 @@ func main() {
 	fmt.Printf("DELETE - deleted single record %s/%s: \n\t%s\n", demoBox, id, out)
 
 	// CREATE multiple records
-	records = []byte(`[{"name": "John Doe", "age": 25},{"name": "Jane Doe", "age": 30}]`)
-	out, err = cl.Create(demoBox, record)
+	records = []byte(`[{"name": "John Doe", "age": 25},{"name": "Jane Do", "age": 30},{"name": "Jon Doe", "age": 30}]`)
+	out, err = cl.Create(demoBox, records)
 	if err != nil {
 		log.Fatalf("failed to create multiple record for demobox %s: %v", demoBox, err)
 	}
 	fmt.Printf("CREATE - Created multiple records for demobox %s: \n\t%s \n", demoBox, out)
+
+	// READ records in BOX_ID
+	if out, err = cl.Read(demoBox + `?query_key=name&query_type=endswith&query_value=Doe`); err == nil {
+		fmt.Printf("READ QUERY - Query records with name endswith 'Doe' in demobox %s: \n\t%s\n", demoBox, out)
+	}
 
 	// DELETING ALL RECORDS in a box
 	if err = cl.DeleteAll(demoBox); err != nil {
