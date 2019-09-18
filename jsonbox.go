@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"net/url"
 	"regexp"
@@ -91,7 +90,7 @@ func (c Client) IDs(boxID string) ([]string, error) {
 func (c Client) DeleteAll(boxID string) error {
 	out, err := c.Read(boxID)
 	if err != nil {
-		log.Fatalf("failed to READ record(s) from boxID %s: %v", boxID, err)
+		return fmt.Errorf("failed to READ record(s) from boxID %s: %v", boxID, err)
 	}
 	metas, err := GetRecordMetas(out)
 	for _, m := range metas {
