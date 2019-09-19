@@ -54,7 +54,7 @@ err := cl.Delete("demobox_6d9e326c183fde7b","5d776b75fd6d3d6cb1d45c53")
 
 **DeleteAll** records for a _BOX_ID_
 ```
-err := cl.Delete(BOXID)
+err := cl.DeleteAll(BOXID)
 ```
 
 **List IDs** for all records for a _BOX_ID_
